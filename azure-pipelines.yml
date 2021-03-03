@@ -31,4 +31,4 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: staticwebsite'
   inputs:
-    ArtifactName: staticwebsite
+    ArtifactName: $(System.DefaultWorkingDirectory)
