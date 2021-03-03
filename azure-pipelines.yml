@@ -7,19 +7,20 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
-
+  name: Azure Pipelines
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+- script: |
+   npm install
+   
+  displayName: 'Install Dependencies'
+
+- script: 'npm run test-ci'
+  displayName: 'Run Tests'
 
 - script: |
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
+   npm run build
+   
+  displayName: 'Build the Project'
 
 - task: CopyFiles@2
   displayName: 'Copy Files'
