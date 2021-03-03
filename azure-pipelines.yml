@@ -28,11 +28,6 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
 
-- task: ArchiveFiles@2
-  displayName: 'Archive Files'
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: staticwebsite'
   inputs:
